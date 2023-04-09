@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 app.use(cors());
+const PORT = process.env.PORT || 4000; 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,8 +31,8 @@ app.post('/convert-code', async (req, res) => {
 
 });
 
-const server = app.listen(4000, () => {
-    console.log('Server running on http://localhost:4000');
+const server = app.listen(PORT, () => {
+    console.log(`Server running on  ${PORT}`);
 });
 
 module.exports = { app, server };
